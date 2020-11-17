@@ -109,7 +109,7 @@ console.log(returnPrimeNumbers());
 // Write a function that loops through and console.log's the numbers from 1 to 100, except multiples of three, log (without quotes) "CSC225 RULES" instead of the number, for the multiples of five, log (without quotes) "I LOVE JAVASCRIPT". For numbers which are multiples of both three and five, log (without quotes) "CSC225 RULES I LOVE JAVASCRIPT" 
 function csc225Rules() {
 
-    for (i = 0; i <= 100; i++) {
+    for (i = 1; i <= 100; i++) {
 
         if (i % 3 == 0 && i % 5 != 0) {
             console.log('CSC225 RULES');
