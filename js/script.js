@@ -45,18 +45,14 @@ const gradeArray = [95, 87, 74, 77, 22, 45, 99, 32, 75];
 
 function passOrFail(array) {
 
-    const tfArray = [];
+    let tfArray = array.map(function(num) {
+        if(num >= 75)
+        return true
+        else
+        return false
+    })
 
-    array.forEach(element => {
-
-        if (element >= 75) {
-            tfArray.push('Pass');
-        } else {
-            tfArray.push('Fail');
-        }
-    });
-
-    return tfArray;
+    return(tfArray);
 }
 
 console.log(passOrFail(gradeArray));
@@ -81,30 +77,20 @@ console.log(germanNumbers());
 // write code that returns an array of ONLY prime numbers that are in the array numbers
 function returnPrimeNumbers() {
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-    const primeArray = [2]; // I put 2 in the array because I accept it is a prime 
-    // number and 1 is not.
-    let isPrime;
 
-    for (let i = 2; i < numbers.length; i += 2) { // +=2 so we don't test even nyumbers that 
-        // we know can not be prime
-
-        for (let j = 0; j < primeArray.length; j++) {
-            if (numbers[i] % primeArray[j] == 0) {
-                isPrime = false;
-                break;
-            }
-            else {
-                isPrime = true;
-            }
+    function isPrime(num) {
+        for (let i = 2; num > i; i++) {
+          if (num % i == 0) {
+            return false;
+          }
         }
-        if (isPrime) {
-            primeArray.push(numbers[i]);
-        }
-
-    }
-    return primeArray;
+        return num > 1;
+      }
+      
+      console.log(numbers.filter(isPrime));
 }
-console.log(returnPrimeNumbers());
+
+returnPrimeNumbers();
 
 // Write a function that loops through and console.log's the numbers from 1 to 100, except multiples of three, log (without quotes) "CSC225 RULES" instead of the number, for the multiples of five, log (without quotes) "I LOVE JAVASCRIPT". For numbers which are multiples of both three and five, log (without quotes) "CSC225 RULES I LOVE JAVASCRIPT" 
 function csc225Rules() {
